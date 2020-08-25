@@ -9,7 +9,7 @@ const Checkout = (p) => {
   return (
     <section className="checkout">
       <button
-        className={itemsInCart > 0 ? "enabled" : "disabled"}
+        className={p.itemsInCart > 0 ? "enabled" : "disabled"}
         onClick={() => checkout()}
       >
         Checkout
@@ -19,10 +19,15 @@ const Checkout = (p) => {
 };
 
 const mapStateToProps = (state, p) => {
+  const itemsInCart = () => {
+    let total = 0;
+    Object.values(state.cart).forEach((val) => {
+      total += val;
+    });
+    return total;
+  };
   return {
-    itemsInCart: () => {
-      return 1;
-    },
+    itemsInCart: itemsInCart(),
   };
 };
 
