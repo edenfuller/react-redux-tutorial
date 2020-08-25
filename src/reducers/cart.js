@@ -9,6 +9,12 @@ export default function (state = model, action) {
     case "CHANGE_QUANTITY":
       newState[action.value.product] += action.value.quantity;
       return newState;
+    case "CHECKOUT":
+      Object.keys(action.cart).forEach((key, i) => {
+        newState[key] -= action.cart[key];
+      });
+
+      return newState;
     default:
       return newState;
   }
