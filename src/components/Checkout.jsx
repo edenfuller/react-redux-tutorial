@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 
 const Checkout = (p) => {
   const checkout = () => {
-    if (p.itemsInCart > 0) return p.dispatch({ type: "CHECKOUT" });
+    if (p.itemsInCart > 0)
+      return p.dispatch({ type: "CHECKOUT", cart: p.cart });
   };
 
   return (
@@ -28,6 +29,7 @@ const mapStateToProps = (state, p) => {
   };
   return {
     itemsInCart: itemsInCart(),
+    cart: state.cart,
   };
 };
 
