@@ -36,6 +36,11 @@
   align-items: center;
   justify-content: center;
 }
+
+.add-remove {
+  text-align: center;
+}
+
 .product-listing .description h1,
 .product-listing .description h2,
 .product-listing .description h3 {
