@@ -2,9 +2,13 @@ import React from "react";
 
 const ProductListing = (p) => {
   return (
-    <div className="product-listing">
+    <article className="product-listing">
       <img src={p.img} />
-    </div>
+      <section className="description">
+        <h1>{p.title}</h1>
+        <h3>{p.name}</h3>
+      </section>
+    </article>
   );
 };
 
