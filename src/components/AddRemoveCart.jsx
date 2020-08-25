@@ -3,13 +3,13 @@ import { connect } from "react-redux";
 
 const AddRemoveCart = (p) => {
   const changeQuantity = (val) => {
-    if (p.cart + val < 0) return console.log("nothing in cart");
+    if (p.cart + val < 0) return undefined;
     else if (p.cart + val > p.inventory)
       return alert(`We don't have that many ${p.name}s in stock!`);
     else {
       const action = {
         type: "CHANGE_QUANTITY",
-        value: { name: p.name, quantity: val },
+        value: { product: p.name, quantity: val },
       };
       return p.dispatch(action);
     }
