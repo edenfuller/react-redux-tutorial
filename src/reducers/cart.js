@@ -6,11 +6,8 @@ const model = {
 export default function (state = model, action) {
   const newState = { ...state };
   switch (action.type) {
-    case "ADD_PRODUCT":
-      newState[action.product] += 1;
-      return newState;
-    case "REMOVE_PRODUCT":
-      if (newState[action.product] > 0) newState[action.product] += 1;
+    case "CHANGE_QUANTITY":
+      newState[action.value.product] += action.value.quantity;
       return newState;
     default:
       return newState;
